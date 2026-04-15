@@ -198,8 +198,15 @@ tasks {
             put("modrinth", mod.modrinth)
             put("curseforge", mod.curseforge)
             put("discord", mod.discord)
-            put("minecraft_version_range", mod.minecraftVersionRange)
 
+            val minecraftVersionRange = if (mod.minecraftVersionRange.contains(' ')) {
+                val parts = mod.minecraftVersionRange.trim().split(' ')
+                ">=" + parts.first() + ' ' + "<=" + parts.last()
+            } else {
+                mod.minecraftVersionRange
+            }
+
+            put("minecraft_version_range", minecraftVersionRange)
             put("fabric_api_version", deps.fabricApiVersion?.trim())
             put("fabric_loader_version", deps.fabricLoaderVersion?.trim())
         }
