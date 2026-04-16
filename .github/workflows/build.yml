@@ -32,7 +32,7 @@ jobs:
       - name: Collect jars
         run: |
           mkdir tmp
-          find . -path */build/libs/*-*.jar -not -path */build/libs/*-*-sources.jar -exec mv '{}' tmp/ \;
+          find . -path '*/build/libs/*-*.jar' -not -path '*/build/libs/*-*-sources.jar' -exec mv '{}' tmp/ \;
       - name: Upload Built Jars
         if: ${{ matrix.java == '25' }} # Only upload artifacts built from latest java
         uses: actions/upload-artifact@v7
