@@ -19,7 +19,7 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc.mixins;
+package io.github.cutecarsmc.client.mixins;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
