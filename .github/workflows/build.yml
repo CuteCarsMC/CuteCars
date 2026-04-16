@@ -31,9 +31,9 @@ jobs:
         run: ./gradlew buildAndCollect
       - name: Upload Built Jars
         if: ${{ matrix.java == '25' }} # Only upload artifacts built from latest java
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           archive: false
           path: |
-            build/libs/*-*.jar
-            !build/libs/*-*-sources.jar
+            versions/26.1-fabric/build/libs/*-*.jar
+            !versions/26.1-fabric/build/libs/*-*-sources.jar
