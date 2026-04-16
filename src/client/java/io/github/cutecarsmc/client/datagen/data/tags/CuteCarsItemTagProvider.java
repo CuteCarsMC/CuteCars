@@ -19,15 +19,20 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc.client.datagen;
+package io.github.cutecarsmc.client.datagen.data.tags;
 
-import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.minecraft.core.HolderLookup;
 
-@Entrypoint("fabric-datagen")
-public final class CuteCarDataGeneration implements DataGeneratorEntrypoint {
+import java.util.concurrent.CompletableFuture;
+
+public final class CuteCarsItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
+    public CuteCarsItemTagProvider(final FabricPackOutput output, final CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
+        super(output, registryLookupFuture);
+    }
+
     @Override
-    public void onInitializeDataGenerator(final FabricDataGenerator generator) {
+    protected void addTags(final HolderLookup.Provider registries) {
     }
 }
