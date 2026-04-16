@@ -19,17 +19,15 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc;
+package io.github.cutecarsmc.client.datagen;
 
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
-import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-@Entrypoint
-public final class CuteCarsClient implements ClientModInitializer {
-	@Override
-	public void onInitializeClient() {
-		System.out.println("Mod ID" + CuteCars.MOD_ID);
-		System.out.println("Version" + CuteCars.VERSION);
-		System.out.println("Commit hash" + CuteCars.COMMIT_HASH);
-	}
+@Entrypoint("fabric-datagen")
+public final class CuteCarDataGeneration implements DataGeneratorEntrypoint {
+    @Override
+    public void onInitializeDataGenerator(final FabricDataGenerator generator) {
+    }
 }
