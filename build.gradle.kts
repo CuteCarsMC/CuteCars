@@ -102,7 +102,15 @@ fletchingTable {
         mixin("default", "${mod.id}.mixins.json")
     }
 
+    mixins.create("client") {
+        mixin("default", "${mod.id}-client.mixins.json")
+    }
+
     lang.create("main") {
+        patterns.add("assets/${mod.id}/lang/**")
+    }
+
+    lang.create("client") {
         patterns.add("assets/${mod.id}/lang/**")
     }
 }
