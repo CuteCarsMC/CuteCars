@@ -33,7 +33,6 @@ jobs:
         if: ${{ matrix.java == '25' }} # Only upload artifacts built from latest java
         uses: actions/upload-artifact@v7
         with:
-          archive: false
           path: |
-            versions/26.1-fabric/build/libs/*-*.jar
-            !versions/26.1-fabric/build/libs/*-*-sources.jar
+            versions/*/build/libs/*-*.jar
+            versions/*/build/libs/*-*-sources.jar
