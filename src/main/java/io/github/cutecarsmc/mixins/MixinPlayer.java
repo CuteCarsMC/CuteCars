@@ -27,7 +27,7 @@ public abstract class MixinPlayer extends Avatar {
     }
 
     @Inject(method = "isSweepAttack", at = @At("HEAD"), cancellable = true)
-    private void cutecars$disableSweepAttack(final boolean fullStrengthAttack, final boolean criticalAttack, final boolean knockbackAttack, final CallbackInfoReturnable<Boolean> cir) {
+    private void cutecars$disableVanillaSweepMechanic(final boolean fullStrengthAttack, final boolean criticalAttack, final boolean knockbackAttack, final CallbackInfoReturnable<Boolean> cir) {
         final ItemEnchantments enchantments = this.getWeaponItem().get(DataComponents.ENCHANTMENTS);
         final int sweepingEdgeLevel = enchantments == null ? 0 : enchantments.getLevel(this.level().registryAccess().getOrThrow(Enchantments.SWEEPING_EDGE));
         if (CuteCarsServerConfig.instance().disableVanillaSweepMechanic && sweepingEdgeLevel == 0) {
