@@ -41,6 +41,6 @@ public class CuteCarsBlocks {
         return register(id, Block::new, properties);
     }
 
-    static void initialise() {
+    static void initialize() {
     }
 }

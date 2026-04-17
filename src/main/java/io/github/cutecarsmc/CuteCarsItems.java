@@ -110,6 +110,6 @@ public class CuteCarsItems {
 		return Registry.register(BuiltInRegistries.ITEM, key, item);
 	}
 
-	static void initialise() {
+	static void initialize() {
 	}
 }

@@ -38,8 +38,8 @@ public final class CuteCarsMain implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		CuteCarsServerConfig.load();
-		CuteCarsBlocks.initialise();
-		CuteCarsItems.initialise();
+		CuteCarsBlocks.initialize();
+		CuteCarsItems.initialize();
 
 		// lowercasebtw
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(Items.MACE, CuteCarsItems.PARRY_UPGRADE));
