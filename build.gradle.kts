@@ -123,22 +123,29 @@ repositories {
     maven("https://maven.neoforged.net/releases") // NeoForge
     maven("https://maven.bawnorton.com/releases") // MixinSquared
     maven("https://maven.terraformersmc.com/") // Mod Menu
+    maven("https://maven.isxander.dev/releases") // YACL
 }
 
 dependencies {
     minecraft("com.mojang:minecraft:${mod.minecraftVersion}")
+    implementation("net.fabricmc:fabric-loader:${deps.fabricLoaderVersion}")!!
 
     compileOnly("org.projectlombok:lombok:${deps.lombokVersion}")
     annotationProcessor("org.projectlombok:lombok:${deps.lombokVersion}")
     runtimeOnly("me.djtheredstoner:DevAuth-${loader.name}:${deps.devAuthVersion}")
-
     include(implementation("com.moulberry:mixinconstraints:${deps.mixinConstraintsVersion}")!!)!!
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-${loader.name}:${deps.mixinSquaredVersion}")!!)!!)
 
-    implementation("net.fabricmc:fabric-loader:${deps.fabricLoaderVersion}")!!
     implementation("net.fabricmc.fabric-api:fabric-api:${deps.fabricApiVersion}")
+
     optionalProp("deps.modmenu_version") { prop ->
         implementation("com.terraformersmc:modmenu:$prop") {
+            exclude(group="net.fabricmc.fabric-api")
+        }
+    }
+
+    optionalProp("deps.yacl_version") { prop ->
+        implementation("dev.isxander:yet-another-config-lib:$prop-fabric") {
             exclude(group="net.fabricmc.fabric-api")
         }
     }

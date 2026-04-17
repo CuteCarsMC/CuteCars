@@ -19,17 +19,16 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc;
+package io.github.cutecarsmc.client.config;
 
+import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import com.terraformersmc.modmenu.api.ModMenuApi;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
-import net.fabricmc.api.ModInitializer;
 
-@Entrypoint("main")
-public final class CuteCarsMain implements ModInitializer {
-	@Override
-	public void onInitialize() {
-        CuteCars.initialize();
-        CuteCarsBlocks.initialise();
-        CuteCarsItems.initialise();
-	}
+@Entrypoint(value = "modmenu")
+public final class ModMenuIntegration implements ModMenuApi {
+    @Override
+    public ConfigScreenFactory<?> getModConfigScreenFactory() {
+        return CuteCarsClientConfig::getConfigScreen;
+    }
 }

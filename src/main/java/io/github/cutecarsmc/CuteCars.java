@@ -21,6 +21,7 @@
 
 package io.github.cutecarsmc;
 
+import io.github.cutecarsmc.config.CuteCarsServerConfig;
 import net.minecraft.resources.Identifier;
 
 public final class CuteCars {
@@ -30,5 +31,9 @@ public final class CuteCars {
 
     public static Identifier withPath(final String path) {
         return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
+
+    public static void initialize() {
+        CuteCarsServerConfig.load();
     }
 }
