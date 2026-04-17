@@ -22,14 +22,15 @@
 package io.github.cutecarsmc;
 
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
+import io.github.cutecarsmc.config.CuteCarsServerConfig;
 import net.fabricmc.api.ModInitializer;
 
 @Entrypoint("main")
 public final class CuteCarsMain implements ModInitializer {
-	@Override
-	public void onInitialize() {
-        CuteCars.initialize();
+    @Override
+    public void onInitialize() {
+        CuteCarsServerConfig.load();
         CuteCarsBlocks.initialise();
         CuteCarsItems.initialise();
-	}
+    }
 }
