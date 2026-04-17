@@ -39,7 +39,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class CuteCarsItems {
+public final class CuteCarsItems {
 	// lowercasebtw
 	public static Item PARRY_UPGRADE = registerItemWithLore(
 		"parry_upgrade",
