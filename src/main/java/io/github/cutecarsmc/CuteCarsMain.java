@@ -27,10 +27,11 @@ import net.fabricmc.api.ModInitializer;
 
 @Entrypoint("main")
 public final class CuteCarsMain implements ModInitializer {
-    @Override
-    public void onInitialize() {
-        CuteCarsServerConfig.load();
-        CuteCarsBlocks.initialise();
-        CuteCarsItems.initialise();
-    }
+	@Override
+	public void onInitialize() {
+		CuteCarsServerConfig.load();
+		CuteCarsBlocks.initialize();
+		CuteCarsItems.initialize();
+		CuteCarsEvents.initialize();
+	}
 }

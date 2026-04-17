@@ -1,0 +1,31 @@
+{
+	"type": "minecraft:smithing_transform",
+	"template": "cutecars:parry_upgrade",
+	"base": "minecraft:golden_sword",
+	"addition": [
+		"minecraft:gold_ingot"
+	],
+	"result": {
+		"id": "minecraft:golden_sword",
+		"components": {
+			"minecraft:blocks_attacks": {
+				"block_delay_seconds": 0,
+				"disable_cooldown_scale": 0,
+				"damage_reductions": [
+					{
+						"base": -0.5,
+						"factor": 0.5
+					}
+				],
+				"item_damage": {
+					"threshold": 0,
+					"base": 0,
+					"factor": 0
+				},
+				"block_sound": "minecraft:entity.player.hurt",
+				"disabled_sound": "minecraft:intentionally_empty",
+				"bypassed_by": "#minecraft:bypasses_armor"
+			}
+		}
+	}
+}

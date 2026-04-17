@@ -30,17 +30,17 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
 
-public class CuteCarsBlocks {
-    private static Block register(final String id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
-        final var resourceKey = ResourceKey.create(Registries.BLOCK, CuteCars.withPath(id));
-        final var block = factory.apply(properties.setId(resourceKey));
-        return Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
-    }
+public final class CuteCarsBlocks {
+	private static Block register(final String id, final Function<BlockBehaviour.Properties, Block> factory, final BlockBehaviour.Properties properties) {
+		final var resourceKey = ResourceKey.create(Registries.BLOCK, CuteCars.withPath(id));
+		final var block = factory.apply(properties.setId(resourceKey));
+		return Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
+	}
 
-    private static Block register(final String id, final BlockBehaviour.Properties properties) {
-        return register(id, Block::new, properties);
-    }
+	private static Block register(final String id, final BlockBehaviour.Properties properties) {
+		return register(id, Block::new, properties);
+	}
 
-    static void initialise() {
-    }
+	static void initialize() {
+	}
 }
