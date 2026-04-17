@@ -24,13 +24,32 @@ package io.github.cutecarsmc;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import io.github.cutecarsmc.config.CuteCarsServerConfig;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 @Entrypoint("main")
 public final class CuteCarsMain implements ModInitializer {
-    @Override
-    public void onInitialize() {
-        CuteCarsServerConfig.load();
-        CuteCarsBlocks.initialise();
-        CuteCarsItems.initialise();
-    }
+	@Override
+	public void onInitialize() {
+		CuteCarsServerConfig.load();
+		CuteCarsBlocks.initialise();
+		CuteCarsItems.initialise();
+
+		// lowercasebtw
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(Items.MACE, CuteCarsItems.PARRY_UPGRADE));
+		LootTableEvents.MODIFY.register((key, builder, source, provider) -> {
+			if (source.isBuiltin() && (BuiltInLootTables.SIMPLE_DUNGEON.equals(key) || BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_UNIQUE.equals(key))) {
+				builder.pool(LootPool.lootPool()
+					.setRolls(UniformGenerator.between(0, 1.0F))
+					.add(LootItem.lootTableItem(CuteCarsItems.PARRY_UPGRADE))
+					.build());
+			}
+		});
+	}
 }

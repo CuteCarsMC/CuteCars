@@ -27,26 +27,27 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Item;
 
 import java.util.concurrent.CompletableFuture;
 
 public final class CuteCarsRecipeProvider extends FabricRecipeProvider {
-    public CuteCarsRecipeProvider(final FabricPackOutput output, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(output, registriesFuture);
-    }
+	public CuteCarsRecipeProvider(final FabricPackOutput output, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		super(output, registriesFuture);
+	}
 
-    @Override
-    protected RecipeProvider createRecipeProvider(final HolderLookup.Provider registries, final RecipeOutput output) {
-        return new RecipeProvider(registries, output) {
-            @Override
-            public void buildRecipes() {
-                var itemLookup = registries.lookupOrThrow(Registries.ITEM);
-            }
-        };
-    }
+	@Override
+	protected RecipeProvider createRecipeProvider(final HolderLookup.Provider registries, final RecipeOutput output) {
+		return new RecipeProvider(registries, output) {
+			@Override
+			public void buildRecipes() {
+				final HolderLookup.RegistryLookup<Item> lookup = registries.lookupOrThrow(Registries.ITEM);
+			}
+		};
+	}
 
-    @Override
-    public String getName() {
-        return "RecipeProvider";
-    }
+	@Override
+	public String getName() {
+		return "RecipeProvider";
+	}
 }
