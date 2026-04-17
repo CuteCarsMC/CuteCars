@@ -22,6 +22,7 @@
 package io.github.cutecarsmc.config;
 
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
+import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import io.github.cutecarsmc.CuteCars;
@@ -34,6 +35,8 @@ public final class CuteCarsServerConfig {
             ).build();
 
     // TODO: Add fields here (annotate with SerialEntry)
+    @SerialEntry
+    public boolean disableVanillaSweepMechanic = true;
 
     public static void load() {
         CONFIG.load();

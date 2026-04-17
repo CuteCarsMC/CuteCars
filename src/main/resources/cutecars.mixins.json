@@ -2,7 +2,8 @@
 	"required": true,
 	"package": "io.github.cutecarsmc.mixins",
 	"compatibilityLevel": "JAVA_25",
-	"client": [
+	"mixins": [
+		"MixinPlayer"
 	],
 	"injectors": {
 		"defaultRequire": 1
