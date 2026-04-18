@@ -1,3 +1,5 @@
 {
-	"item.cutecars.parry_upgrade": "Parry Upgrade"
+	"item.cutecars.blocking_upgrade": "Blocking Upgrade",
+	"item.cutecars.smithing_template.blocking_upgrade.applies_to": "Swords",
+	"item.cutecars.smithing_template.blocking_upgrade.ingredients": "Ingots & Blocks"
 }

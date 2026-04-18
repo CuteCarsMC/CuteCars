@@ -19,8 +19,9 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc;
+package io.github.cutecarsmc.content;
 
+import io.github.cutecarsmc.content.items.CuteCarsItems;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,14 +32,14 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 public final class CuteCarsEvents {
-	static void initialize() {
+	public static void initialize() {
 		// lowercasebtw
-		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(Items.MACE, CuteCarsItems.PARRY_UPGRADE));
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> output.insertAfter(Items.MACE, CuteCarsItems.BLOCKING_UPGRADE));
 		LootTableEvents.MODIFY.register((key, builder, source, provider) -> {
-			if (source.isBuiltin() && (BuiltInLootTables.SIMPLE_DUNGEON.equals(key) || BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_UNIQUE.equals(key))) {
+			if (source.isBuiltin() && (BuiltInLootTables.SIMPLE_DUNGEON.equals(key) || BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS_UNIQUE.equals(key) || BuiltInLootTables.SHIPWRECK_TREASURE.equals(key) || BuiltInLootTables.VILLAGE_WEAPONSMITH.equals(key))) {
 				builder.pool(LootPool.lootPool()
 					.setRolls(UniformGenerator.between(0, 1.0F))
-					.add(LootItem.lootTableItem(CuteCarsItems.PARRY_UPGRADE))
+					.add(LootItem.lootTableItem(CuteCarsItems.BLOCKING_UPGRADE))
 					.build());
 			}
 		});
