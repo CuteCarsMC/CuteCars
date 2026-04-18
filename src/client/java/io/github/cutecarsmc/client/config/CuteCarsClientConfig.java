@@ -22,6 +22,7 @@
 package io.github.cutecarsmc.client.config;
 
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
+import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import dev.isxander.yacl3.platform.YACLPlatform;
 import io.github.cutecarsmc.CuteCars;
@@ -36,6 +37,8 @@ public final class CuteCarsClientConfig {
         ).build();
 
     // TODO: Add fields here (annotate with SerialEntry)
+	@SerialEntry
+	public boolean enableUwuification = false;
 
     public static Screen getConfigScreen(final @Nullable Screen parent) {
         return CONFIG.generateGui().generateScreen(parent); // TODO
