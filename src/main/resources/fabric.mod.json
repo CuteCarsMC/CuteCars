@@ -45,5 +45,12 @@
 			},
 			"update_checker": true
 		}
-	}
+	},
+	"mixins": [
+		"cutecars.mixins.json",
+		{
+			"environment": "client",
+			"config": "cutecars-client.mixins.json"
+		}
+	]
 }
