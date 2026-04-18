@@ -18,9 +18,7 @@ public class UwuifiedCharSequence implements FormattedCharSequence {
 		return original.accept((position, style, codepoint) -> {
 			// thanks jab lol
 			for (int newCodepoint : (Iterable<Integer>) uwuified.chars()::iterator) {
-				if (!output.accept(position, style, newCodepoint)) {
-					return false;
-				}
+				output.accept(position, style, newCodepoint);
 			}
 			return false;
 		});
