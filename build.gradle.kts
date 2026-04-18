@@ -4,6 +4,7 @@ plugins {
 	alias(libs.plugins.publishing)
 	alias(libs.plugins.blossom)
 	alias(libs.plugins.ksp)
+	alias(libs.plugins.spotless)
 	id("maven-publish")
 }
 
@@ -242,3 +243,19 @@ publishing {
 
 fun <T> optionalProp(property: String, block: (String) -> T?): T? =
 	findProperty(property)?.toString()?.takeUnless { it.isBlank() }?.let(block)
+
+// Header
+spotless {
+	val licenseHeader = rootProject.file("HEADER")
+	lineEndings = com.diffplug.spotless.LineEnding.UNIX
+
+	java {
+		licenseHeaderFile(licenseHeader)
+		target("src/**/*.java")
+	}
+
+	kotlin {
+		licenseHeaderFile(licenseHeader)
+		target("src/**/*.kt")
+	}
+}

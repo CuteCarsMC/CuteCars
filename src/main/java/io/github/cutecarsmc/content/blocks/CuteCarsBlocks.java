@@ -19,8 +19,9 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc;
+package io.github.cutecarsmc.content.blocks;
 
+import io.github.cutecarsmc.CuteCars;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -41,6 +42,6 @@ public final class CuteCarsBlocks {
 		return register(id, Block::new, properties);
 	}
 
-	static void initialize() {
+	public static void initialize() {
 	}
 }

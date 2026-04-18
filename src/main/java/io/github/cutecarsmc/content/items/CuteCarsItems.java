@@ -19,38 +19,43 @@
  * <https://www.gnu.org/licenses/>.
  */
 
-package io.github.cutecarsmc;
+package io.github.cutecarsmc.content.items;
 
+import io.github.cutecarsmc.CuteCars;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SmithingTemplateItem;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public final class CuteCarsItems {
 	// lowercasebtw
-	public static Item PARRY_UPGRADE = registerItemWithLore(
-		"parry_upgrade",
-		new Item.Properties()
-			.component(DataComponents.MAX_STACK_SIZE, 1)
-			.component(DataComponents.RARITY, Rarity.UNCOMMON),
-		List.of(
-			Component.literal("Applicable to swords as a way to reintroduce"),
-			Component.literal("the classic sword blocking functionality known from <=1.8.x."),
+	public static Item BLOCKING_UPGRADE = registerItem(
+		"blocking_upgrade",
+		properties -> new SmithingTemplateItem(
+			CuteCars.createItemDescription("smithing_template.blocking_upgrade.applies_to"),
+			CuteCars.createItemDescription("smithing_template.blocking_upgrade.ingredients"),
 			Component.empty(),
-			Component.literal("To use, apply using a smithing table.")
+			Component.empty(),
+			List.of(Identifier.withDefaultNamespace("container/slot/sword")),
+			List.of(Identifier.withDefaultNamespace("container/slot/ingot"), CuteCars.withPath("container/slot/block")),
+			properties
+				.component(DataComponents.MAX_STACK_SIZE, 1)
+				.component(DataComponents.RARITY, Rarity.UNCOMMON)
+				.component(DataComponents.LORE, new ItemLore(List.of(Component.literal("Reintroduce the classic sword blocking functionality from <=1.8.x.").withStyle(ChatFormatting.WHITE))))
 		)
 	);
 
@@ -82,17 +87,6 @@ public final class CuteCarsItems {
 		return registerItem(name, Item::new, properties);
 	}
 
-	private static Item registerItemWithLore(final String name, final Item.Properties properties, final List<Component> components) {
-		return registerItem(
-			name,
-			Item::new,
-			properties.component(
-				DataComponents.LORE,
-				new ItemLore(components.stream().map(it -> it.copy().withStyle(Style.EMPTY).withColor(0xFFFFFFFF)).collect(Collectors.toUnmodifiableList()))
-			)
-		);
-	}
-
 	private static Item registerItem(final String name) {
 		return registerItem(name, Item::new, new Item.Properties());
 	}
@@ -110,6 +104,6 @@ public final class CuteCarsItems {
 		return Registry.register(BuiltInRegistries.ITEM, key, item);
 	}
 
-	static void initialize() {
+	public static void initialize() {
 	}
 }

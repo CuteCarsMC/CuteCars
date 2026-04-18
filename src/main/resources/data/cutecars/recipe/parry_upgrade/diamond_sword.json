@@ -1,6 +1,6 @@
 {
 	"type": "minecraft:smithing_transform",
-	"template": "cutecars:parry_upgrade",
+	"template": "cutecars:blocking_upgrade",
 	"base": "minecraft:diamond_sword",
 	"addition": [
 		"minecraft:diamond"
@@ -25,7 +25,13 @@
 				"block_sound": "minecraft:entity.player.hurt",
 				"disabled_sound": "minecraft:intentionally_empty",
 				"bypassed_by": "#minecraft:bypasses_armor"
-			}
+			},
+			"minecraft:lore": [
+				{
+					"text": "(Legacy Blocking)",
+					"color": "gray"
+				}
+			]
 		}
 	}
 }

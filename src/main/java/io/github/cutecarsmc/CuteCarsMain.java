@@ -22,6 +22,9 @@
 package io.github.cutecarsmc;
 
 import io.github.cutecarsmc.config.CuteCarsServerConfig;
+import io.github.cutecarsmc.content.CuteCarsEvents;
+import io.github.cutecarsmc.content.blocks.CuteCarsBlocks;
+import io.github.cutecarsmc.content.items.CuteCarsItems;
 import net.fabricmc.api.ModInitializer;
 
 public final class CuteCarsMain implements ModInitializer {
