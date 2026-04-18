@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:item/generated",
 	"textures": {
-		"layer0": "cutecars:item/parry_upgrade"
+		"layer0": "cutecars:item/blocking_upgrade"
 	}
 }

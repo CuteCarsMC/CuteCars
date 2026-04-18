@@ -1,6 +1,6 @@
 {
 	"model": {
 		"type": "minecraft:model",
-		"model": "cutecars:item/parry_upgrade"
+		"model": "cutecars:item/blocking_upgrade"
 	}
 }
