@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(GuiTextRenderState.class)
 abstract class GuiTextRenderStateMixin implements ScreenArea {
 	@ModifyVariable(method = "<init>", at = @At("LOAD"), argsOnly = true)
-	private static FormattedCharSequence uwuify(FormattedCharSequence original) {
+	private static FormattedCharSequence cutecars$uwuify(FormattedCharSequence original) {
 		return CuteCarsClientConfig.instance().enableUwuification ? new UwuifiedCharSequence(original) : original;
 	}
 }

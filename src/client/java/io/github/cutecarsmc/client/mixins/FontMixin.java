@@ -12,12 +12,12 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(Font.class)
 abstract class FontMixin {
 	@ModifyVariable(method = "width(Ljava/lang/String;)I", at = @At("LOAD"), argsOnly = true)
-	private static String uwuify(String original) {
+	private static String cutecars$uwuify(String original) {
 		return CuteCarsClientConfig.instance().enableUwuification ? Uwuifier.uwuify(original) : original;
 	}
 
 	@ModifyVariable(method = "width(Lnet/minecraft/util/FormattedCharSequence;)I", at = @At("LOAD"), argsOnly = true)
-	private static FormattedCharSequence uwuify(FormattedCharSequence original) {
+	private static FormattedCharSequence cutecars$uwuify(FormattedCharSequence original) {
 		return CuteCarsClientConfig.instance().enableUwuification ? new UwuifiedCharSequence(original) : original;
 	}
 }
