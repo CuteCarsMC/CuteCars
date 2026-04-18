@@ -8,13 +8,13 @@ public class UwuifiedCharSequence implements FormattedCharSequence {
 	private final FormattedCharSequence original;
 	private final String uwuified;
 
-	public UwuifiedCharSequence(FormattedCharSequence original) {
+	public UwuifiedCharSequence(final FormattedCharSequence original) {
 		this.original = original;
 		this.uwuified = Uwuifier.uwuify(this.original);
 	}
 
 	@Override
-	public boolean accept(@NonNull FormattedCharSink output) {
+	public boolean accept(final @NonNull FormattedCharSink output) {
 		return original.accept((position, style, codepoint) -> {
 			// thanks jab lol
 			for (int newCodepoint : (Iterable<Integer>) uwuified.chars()::iterator) {

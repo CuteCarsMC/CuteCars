@@ -21,15 +21,14 @@ public class Uwuifier {
 		":3"
 	);
 
-
-	public static String uwuify(String original) {
+	public static String uwuify(final String original) {
 		int stringLength = original.length();
 
 		// Replace 'r' and 'l' with 'w', and 'R' and 'L' with 'W'
 		// Replace 'ove' with 'uv' and 'OVE' with 'UV'
 		// Replace 'o' with 'owo' and 'O' with 'OwO'
 		// Replace repeated exclamation marks and question marks
-		original = original
+		String uwuified = original
 			.replaceAll("[rl]", "w").replaceAll("[RL]", "W")
 			.replaceAll("ove", "uv").replaceAll("OVE", "UV")
 			.replaceAll("o", "owo").replaceAll("O", "OwO")
@@ -37,29 +36,29 @@ public class Uwuifier {
 
 		// Convert to uppercase
 		if (stringLength % 3 == 0) {
-			original = original.toUpperCase(Locale.ROOT);
+			uwuified = uwuified.toUpperCase(Locale.ROOT);
 		}
 
-		original = Pattern.compile("%(\\p{L})").matcher(original).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
-		original = Pattern.compile("\\$(\\p{L})").matcher(original).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
+		uwuified = Pattern.compile("%(\\p{L})").matcher(uwuified).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
+		uwuified = Pattern.compile("\\$(\\p{L})").matcher(uwuified).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
 
 		if (stringLength % 2 == 0) {
 			// Add more letters to the end of words (Not numbers!)
-			original = original.replaceAll("(\\p{L})(\\b)", "$1$1$1$1$2");
+			uwuified = uwuified.replaceAll("(\\p{L})(\\b)", "$1$1$1$1$2");
 		}
 		else {
 			// 50% chance to duplicate the first letter and add '-'
-			original = original.replaceAll("\\b(\\p{L})(\\p{L}*)\\b", "$1-$1$2");
+			uwuified = uwuified.replaceAll("\\b(\\p{L})(\\p{L}*)\\b", "$1-$1$2");
 		}
 
-		return original + " " + PHRASES.get(stringLength % PHRASES.size());
+		return uwuified + " " + PHRASES.get(stringLength % PHRASES.size());
 	}
 
-	public static String uwuify(FormattedCharSequence sequence) {
+	public static String uwuify(final FormattedCharSequence sequence) {
 		return uwuify(charSequenceToString(sequence));
 	}
 
-	public static String charSequenceToString(FormattedCharSequence sequence) {
+	public static String charSequenceToString(final FormattedCharSequence sequence) {
 		var builder = new StringBuilder();
 		sequence.accept((position, style, codepoint) -> {
 			builder.appendCodePoint(codepoint);
