@@ -40,19 +40,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Player.class)
 abstract class PlayerMixin extends Avatar {
-    @Shadow
-    public abstract @NonNull ItemStack getWeaponItem();
+	@Shadow
+	public abstract @NonNull ItemStack getWeaponItem();
 
-    protected PlayerMixin(final EntityType<? extends LivingEntity> type, final Level level) {
-        super(type, level);
-    }
+	protected PlayerMixin(final EntityType<? extends LivingEntity> type, final Level level) {
+		super(type, level);
+	}
 
-    @Inject(method = "isSweepAttack", at = @At("HEAD"), cancellable = true)
-    private void cutecars$disableVanillaSweepMechanic(final boolean fullStrengthAttack, final boolean criticalAttack, final boolean knockbackAttack, final CallbackInfoReturnable<Boolean> cir) {
-        final ItemEnchantments enchantments = this.getWeaponItem().get(DataComponents.ENCHANTMENTS);
-        final int sweepingEdgeLevel = enchantments == null ? 0 : enchantments.getLevel(this.level().registryAccess().getOrThrow(Enchantments.SWEEPING_EDGE));
-        if (CuteCarsServerConfig.instance().disableVanillaSweepMechanic && sweepingEdgeLevel == 0) {
-            cir.setReturnValue(false);
-        }
-    }
+	@Inject(method = "isSweepAttack", at = @At("HEAD"), cancellable = true)
+	private void cutecars$disableVanillaSweepMechanic(final boolean fullStrengthAttack, final boolean criticalAttack, final boolean knockbackAttack, final CallbackInfoReturnable<Boolean> cir) {
+		final ItemEnchantments enchantments = this.getWeaponItem().get(DataComponents.ENCHANTMENTS);
+		final int sweepingEdgeLevel = enchantments == null ? 0 : enchantments.getLevel(this.level().registryAccess().getOrThrow(Enchantments.SWEEPING_EDGE));
+		if (CuteCarsServerConfig.instance().disableVanillaSweepMechanic && sweepingEdgeLevel == 0) {
+			cir.setReturnValue(false);
+		}
+	}
 }

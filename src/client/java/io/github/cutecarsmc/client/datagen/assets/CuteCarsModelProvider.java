@@ -27,22 +27,22 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 
 public final class CuteCarsModelProvider extends FabricModelProvider {
-    public CuteCarsModelProvider(final FabricPackOutput output) {
-        super(output);
-    }
+	public CuteCarsModelProvider(final FabricPackOutput output) {
+		super(output);
+	}
 
-    @Override
-    public void generateBlockStateModels(final BlockModelGenerators blockModelGenerators) {
+	@Override
+	public void generateBlockStateModels(final BlockModelGenerators blockModelGenerators) {
 
-    }
+	}
 
-    @Override
-    public void generateItemModels(final ItemModelGenerators itemModelGenerators) {
+	@Override
+	public void generateItemModels(final ItemModelGenerators itemModelGenerators) {
 
-    }
+	}
 
-    @Override
-    public String getName() {
-        return "ModelProvider";
-    }
+	@Override
+	public String getName() {
+		return "ModelProvider";
+	}
 }

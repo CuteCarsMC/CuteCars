@@ -32,33 +32,33 @@ import net.minecraft.client.gui.screens.Screen;
 import org.jetbrains.annotations.Nullable;
 
 public final class CuteCarsClientConfig {
-    private static final ConfigClassHandler<CuteCarsClientConfig> CONFIG = ConfigClassHandler.createBuilder(CuteCarsClientConfig.class)
-        .serializer((config) -> GsonConfigSerializerBuilder.create(config)
-            .setPath(YACLPlatform.getConfigDir().resolve(CuteCars.MOD_ID + "_client.json"))
-            .build()
-        )
+	private static final ConfigClassHandler<CuteCarsClientConfig> CONFIG = ConfigClassHandler.createBuilder(CuteCarsClientConfig.class)
+		.serializer((config) -> GsonConfigSerializerBuilder.create(config)
+			.setPath(YACLPlatform.getConfigDir().resolve(CuteCars.MOD_ID + "_client.json"))
+			.build()
+		)
 		.id(CuteCars.withPath("meow"))
 		.build();
 
-    // TODO: Add fields here (annotate with SerialEntry)
+	// TODO: Add fields here (annotate with SerialEntry)
 	@SerialEntry
 	@AutoGen(category = "mrow")
 	@TickBox
 	public boolean enableUwuification = false;
 
-    public static Screen getConfigScreen(final @Nullable Screen parent) {
-        return CONFIG.generateGui().generateScreen(parent); // TODO
-    }
+	public static Screen getConfigScreen(final @Nullable Screen parent) {
+		return CONFIG.generateGui().generateScreen(parent);
+	}
 
-    public static void load() {
-        CONFIG.load();
-    }
+	public static void load() {
+		CONFIG.load();
+	}
 
-    public static void save() {
-        CONFIG.save();
-    }
+	public static void save() {
+		CONFIG.save();
+	}
 
-    public static CuteCarsClientConfig instance() {
-        return CONFIG.instance();
-    }
+	public static CuteCarsClientConfig instance() {
+		return CONFIG.instance();
+	}
 }

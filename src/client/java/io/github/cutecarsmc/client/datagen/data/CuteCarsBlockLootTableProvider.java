@@ -28,12 +28,12 @@ import net.minecraft.core.HolderLookup;
 import java.util.concurrent.CompletableFuture;
 
 public final class CuteCarsBlockLootTableProvider extends FabricBlockLootSubProvider {
-    public CuteCarsBlockLootTableProvider(final FabricPackOutput packOutput, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(packOutput, registriesFuture);
-    }
+	public CuteCarsBlockLootTableProvider(final FabricPackOutput packOutput, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		super(packOutput, registriesFuture);
+	}
 
-    @Override
-    public void generate() {
+	@Override
+	public void generate() {
 
-    }
+	}
 }

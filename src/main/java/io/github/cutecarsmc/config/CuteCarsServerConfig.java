@@ -28,25 +28,25 @@ import dev.isxander.yacl3.platform.YACLPlatform;
 import io.github.cutecarsmc.CuteCars;
 
 public final class CuteCarsServerConfig {
-    private static final ConfigClassHandler<CuteCarsServerConfig> CONFIG = ConfigClassHandler.createBuilder(CuteCarsServerConfig.class)
-        .serializer((config) -> GsonConfigSerializerBuilder.create(config)
-            .setPath(YACLPlatform.getConfigDir().resolve(CuteCars.MOD_ID + "_server.json"))
-            .build()
-        ).build();
+	private static final ConfigClassHandler<CuteCarsServerConfig> CONFIG = ConfigClassHandler.createBuilder(CuteCarsServerConfig.class)
+		.serializer((config) -> GsonConfigSerializerBuilder.create(config)
+			.setPath(YACLPlatform.getConfigDir().resolve(CuteCars.MOD_ID + "_server.json"))
+			.build()
+		).build();
 
-    // TODO: Add fields here (annotate with SerialEntry)
-    @SerialEntry
-    public boolean disableVanillaSweepMechanic = true;
+	// TODO: Add fields here (annotate with SerialEntry)
+	@SerialEntry
+	public boolean disableVanillaSweepMechanic = true;
 
-    public static void load() {
-        CONFIG.load();
-    }
+	public static void load() {
+		CONFIG.load();
+	}
 
-    public static void save() {
-        CONFIG.save();
-    }
+	public static void save() {
+		CONFIG.save();
+	}
 
-    public static CuteCarsServerConfig instance() {
-        return CONFIG.instance();
-    }
+	public static CuteCarsServerConfig instance() {
+		return CONFIG.instance();
+	}
 }

@@ -3,9 +3,9 @@
 	"package": "io.github.cutecarsmc.client.mixins",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"MixinMinecraft",
+		"FontMixin",
 		"GuiTextRenderStateMixin",
-		"FontMixin"
+		"MixinMinecraft"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -28,11 +28,11 @@ import net.minecraft.core.HolderLookup;
 import java.util.concurrent.CompletableFuture;
 
 public final class CuteCarsBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
-    public CuteCarsBlockTagProvider(final FabricPackOutput output, final CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
-        super(output, registryLookupFuture);
-    }
+	public CuteCarsBlockTagProvider(final FabricPackOutput output, final CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
+		super(output, registryLookupFuture);
+	}
 
-    @Override
-    protected void addTags(final HolderLookup.Provider registries) {
-    }
+	@Override
+	protected void addTags(final HolderLookup.Provider registries) {
+	}
 }
