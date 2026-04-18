@@ -45,8 +45,7 @@ public class Uwuifier {
 		if (stringLength % 2 == 0) {
 			// Add more letters to the end of words (Not numbers!)
 			uwuified = uwuified.replaceAll("(\\p{L})(\\b)", "$1$1$1$1$2");
-		}
-		else {
+		} else {
 			// 50% chance to duplicate the first letter and add '-'
 			uwuified = uwuified.replaceAll("\\b(\\p{L})(\\p{L}*)\\b", "$1-$1$2");
 		}
