@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-public class Uwuifier {
+public final class Uwuifier {
 	private static final List<String> PHRASES = List.of(
 		"UwU",
 		"owo",
@@ -43,7 +43,7 @@ public class Uwuifier {
 	);
 
 	public static String uwuify(final String original) {
-		int stringLength = original.length();
+		final int stringLength = original.length();
 
 		// Replace 'r' and 'l' with 'w', and 'R' and 'L' with 'W'
 		// Replace 'ove' with 'uv' and 'OVE' with 'UV'
@@ -62,7 +62,6 @@ public class Uwuifier {
 
 		uwuified = Pattern.compile("%(\\p{L})").matcher(uwuified).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
 		uwuified = Pattern.compile("\\$(\\p{L})").matcher(uwuified).replaceAll(m -> "%" + m.group(1).toLowerCase(Locale.ROOT));
-
 		if (stringLength % 2 == 0) {
 			// Add more letters to the end of words (Not numbers!)
 			uwuified = uwuified.replaceAll("(\\p{L})(\\b)", "$1$1$1$1$2");
@@ -79,7 +78,7 @@ public class Uwuifier {
 	}
 
 	public static String charSequenceToString(final FormattedCharSequence sequence) {
-		var builder = new StringBuilder();
+		final StringBuilder builder = new StringBuilder();
 		sequence.accept((position, style, codepoint) -> {
 			builder.appendCodePoint(codepoint);
 			return true;

@@ -55,7 +55,7 @@ public final class CuteCarsItems {
 			properties
 				.component(DataComponents.MAX_STACK_SIZE, 1)
 				.component(DataComponents.RARITY, Rarity.UNCOMMON)
-				.component(DataComponents.LORE, new ItemLore(List.of(Component.literal("Reintroduce the classic sword blocking functionality from <=1.8.x.").withStyle(ChatFormatting.WHITE))))
+				.component(DataComponents.LORE, new ItemLore(List.of(CuteCars.createItemDescription("smithing_template.blocking_upgrade.description").copy().withStyle(ChatFormatting.WHITE))))
 		)
 	);
 

@@ -40,9 +40,8 @@ public final class CuteCarsClientConfig {
 		.id(CuteCars.withPath("meow"))
 		.build();
 
-	// TODO: Add fields here (annotate with SerialEntry)
+	@AutoGen(category = "general")
 	@SerialEntry
-	@AutoGen(category = "mrow")
 	@TickBox
 	public boolean enableUwuification = false;
 

@@ -1,6 +1,10 @@
 {
 	"item.cutecars.blocking_upgrade": "Blocking Upgrade",
+
 	"item.cutecars.smithing_template.blocking_upgrade.applies_to": "Swords",
 	"item.cutecars.smithing_template.blocking_upgrade.ingredients": "Ingots & Blocks",
+	"item.cutecars.smithing_template.blocking_upgrade.description": "Reintroduce the classic sword blocking functionality from pre 1.9.",
+
+	"yacl3.config.cutecars:meow.category.general": "General",
 	"yacl3.config.cutecars:meow.enableUwuification": "Enable uwuification"
 }

@@ -25,7 +25,7 @@ import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.FormattedCharSink;
 import org.jspecify.annotations.NonNull;
 
-public class UwuifiedCharSequence implements FormattedCharSequence {
+public final class UwuifiedCharSequence implements FormattedCharSequence {
 	private final FormattedCharSequence original;
 	private final String uwuified;
 
@@ -38,9 +38,10 @@ public class UwuifiedCharSequence implements FormattedCharSequence {
 	public boolean accept(final @NonNull FormattedCharSink output) {
 		return original.accept((position, style, codepoint) -> {
 			// thanks jab lol
-			for (int newCodepoint : (Iterable<Integer>) uwuified.chars()::iterator) {
+			for (final int newCodepoint : (Iterable<Integer>) uwuified.chars()::iterator) {
 				output.accept(position, style, newCodepoint);
 			}
+
 			return false;
 		});
 	}
